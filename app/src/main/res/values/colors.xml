@@ -38,4 +38,6 @@
     <color name="colorBlue">#2196F3</color>
     <color name="lightGray">#F2F2F2</color>
 
+    <!--  Color DAM  -->
+    <color name="red">#F44336</color>
 </resources>
