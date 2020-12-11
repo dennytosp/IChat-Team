@@ -10,6 +10,8 @@ public class User {
 
     }
 
+
+
     public User(String name, String email, String search, String phone, String image, String cover, String uid, String onlineStatus, String typingTo, boolean isBlocked) {
         this.name = name;
         this.email = email;

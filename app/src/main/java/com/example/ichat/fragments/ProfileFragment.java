@@ -35,7 +35,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ichat.AddPostActivity;
-import com.example.ichat.MainActivity;
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.R;
 import com.example.ichat.SettingsActivity;
 import com.example.ichat.adapter.AdapterPosts;
@@ -360,7 +360,7 @@ public class ProfileFragment extends Fragment {
                 } else if (which == 4) {
                     //Edit Phone clicked
                     pd.setMessage("Changing Password");
-                    showChangePasswordDialog();
+                    //showChangePasswordDialog();
                 }
             }
         });
@@ -368,41 +368,41 @@ public class ProfileFragment extends Fragment {
         builder.create().show();
     }
 
-    private void showChangePasswordDialog() {
-        //password change dialog with custom layout having currentPassword, newPassword and update button
-
-        //inflate layout for dialog
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_update_password, null);
-        final EditText passwordEt = view.findViewById(R.id.passwordEt);
-        final EditText newPasswordEt = view.findViewById(R.id.newPasswordEt);
-        Button updatePasswordBtn = view.findViewById(R.id.updatePasswordBtn);
-
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setView(view); //set view to dialog
-
-        final AlertDialog dialog = builder.create();
-        dialog.show();
-
-        updatePasswordBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //validate data
-                String oldPassword = passwordEt.getText().toString().trim();
-                String newPassword = newPasswordEt.getText().toString().trim();
-                if (TextUtils.isEmpty(oldPassword)) {
-                    Toast.makeText(getActivity(), "Enter your current password...", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (newPassword.length() < 6) {
-                    Toast.makeText(getActivity(), "Password length must atleast 6 characters...", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                dialog.dismiss();
-                updatePassword(oldPassword, newPassword);
-            }
-        });
-    }
+//    private void showChangePasswordDialog() {
+//        //password change dialog with custom layout having currentPassword, newPassword and update button
+//
+//        //inflate layout for dialog
+//        View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_update_password, null);
+//        final EditText passwordEt = view.findViewById(R.id.passwordEt);
+//        final EditText newPasswordEt = view.findViewById(R.id.newPasswordEt);
+//        Button updatePasswordBtn = view.findViewById(R.id.updatePasswordBtn);
+//
+//        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//        builder.setView(view); //set view to dialog
+//
+//        final AlertDialog dialog = builder.create();
+//        dialog.show();
+//
+//        updatePasswordBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //validate data
+//                String oldPassword = passwordEt.getText().toString().trim();
+//                String newPassword = newPasswordEt.getText().toString().trim();
+//                if (TextUtils.isEmpty(oldPassword)) {
+//                    Toast.makeText(getActivity(), "Enter your current password...", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (newPassword.length() < 6) {
+//                    Toast.makeText(getActivity(), "Password length must atleast 6 characters...", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//                dialog.dismiss();
+//                updatePassword(oldPassword, newPassword);
+//            }
+//        });
+//    }
 
     private void updatePassword(String oldPassword, final String newPassword) {
         pd.show();
@@ -898,7 +898,7 @@ public class ProfileFragment extends Fragment {
             uid = user.getUid();
         } else {
             //user not signed in, go to main acitivity
-            startActivity(new Intent(getActivity(), MainActivity.class));
+            startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
         }
     }

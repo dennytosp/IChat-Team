@@ -50,8 +50,6 @@
         <activity android:name=".DashboardActivity">
 
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
 
         <service
             android:name=".notifications.FirebaseMessaging"

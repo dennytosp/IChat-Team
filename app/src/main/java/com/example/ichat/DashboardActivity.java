@@ -13,6 +13,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.fragments.ChatListFragment;
 import com.example.ichat.fragments.HomeFragment;
 import com.example.ichat.fragments.NotificationsFragment;
@@ -182,7 +183,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         } else {
             //user not signed in, go to main acitivity
-            startActivity(new Intent(DashboardActivity.this, MainActivity.class));
+            startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
             finish();
         }
     }

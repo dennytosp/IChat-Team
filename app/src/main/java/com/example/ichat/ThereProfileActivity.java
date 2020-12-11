@@ -17,6 +17,7 @@ import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.adapter.AdapterPosts;
 import com.example.ichat.models.Post;
 import com.google.firebase.auth.FirebaseAuth;
@@ -214,7 +215,7 @@ public class ThereProfileActivity extends AppCompatActivity {
         }
         else {
             //user not signed in, go to main acitivity
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
         }
     }

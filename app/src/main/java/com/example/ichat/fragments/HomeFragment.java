@@ -17,15 +17,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.ichat.AddPostActivity;
 import com.example.ichat.FragmentIntent.AddpostFragment;
-import com.example.ichat.MainActivity;
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.R;
 import com.example.ichat.SettingsActivity;
 import com.example.ichat.adapter.AdapterPosts;
@@ -42,11 +39,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static android.content.ContentValues.TAG;
 
 public class HomeFragment extends Fragment {
     LinearLayout clickPhoto;
@@ -189,7 +183,7 @@ public class HomeFragment extends Fragment {
             //mProfileTv.setText(user.getEmail());
         } else {
             //user not signed in, go to main acitivity
-            startActivity(new Intent(getActivity(), MainActivity.class));
+            startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
         }
     }

@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ichat.GroupCreateActivity;
-import com.example.ichat.MainActivity;
 import com.example.ichat.R;
 import com.example.ichat.SettingsActivity;
 import com.example.ichat.adapter.AdapterChatlist;

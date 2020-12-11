@@ -28,6 +28,7 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.adapter.AdapterComments;
 import com.example.ichat.models.Comment;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -667,7 +668,7 @@ public class PostDetailActivity extends AppCompatActivity {
             myUid = user.getUid();
         } else {
             //user not signed in, go to main activity
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
         }
     }
