@@ -47,13 +47,8 @@
         <activity
             android:name=".ChatActivity"
             android:theme="@style/AppThemeNo" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".DashboardActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
@@ -84,6 +79,36 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/paths" />
         </provider>
+
+        <!--    Hau Nguyen    -->
+        <activity android:name=".HauNguyen.ContentHome"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".HauNguyen.SignUp.Content_FrameLayout_Register_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity android:name=".HauNguyen.Login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity android:name=".HauNguyen.BeginNew.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".HauNguyen.BeginNew.OnBroading"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".HauNguyen.ForgotPassword.Content_ForgotPassWord_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
 
     </application>
 

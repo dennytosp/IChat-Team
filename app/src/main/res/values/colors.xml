@@ -8,9 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#9b1ac9</color>
-    <color name="colorPrimaryDark">#710d95</color>
-    <color name="colorAccent">#9b1ac9</color>
+<!--    <color name="colorPrimary">#9b1ac9</color>-->
+<!--    <color name="colorPrimaryDark">#710d95</color>-->
+<!--    <color name="colorAccent">#9b1ac9</color>-->
     <color name="colorBlack">#000</color>
     <color name="colorWhite">#fff</color>
 
@@ -26,5 +26,16 @@
     <color name="white_greyish">#EEEEEE</color>
     <color name="button_selectorcolor">#9E9E9E</color>
 
+    <color name="colorPrimary">#228583</color>
+    <color name="colorPrimaryDark">#0F6362</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimaryClone">#5DB4B2</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorTextHint">#80228583</color>
+    <color name="colorRed">#BD2B20</color>
+    <color name="colorDivider">#DBDBDB</color>
+    <color name="colorBlue">#2196F3</color>
+    <color name="lightGray">#F2F2F2</color>
 
 </resources>
