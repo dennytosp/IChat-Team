@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -25,7 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.ichat.AddPostActivity;
 import com.example.ichat.FragmentIntent.AddpostFragment;
-import com.example.ichat.MainActivity;
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.R;
 import com.example.ichat.SettingsActivity;
 import com.example.ichat.adapter.AdapterPosts;
@@ -189,7 +190,7 @@ public class HomeFragment extends Fragment {
             //mProfileTv.setText(user.getEmail());
         } else {
             //user not signed in, go to main acitivity
-            startActivity(new Intent(getActivity(), MainActivity.class));
+            startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
         }
     }

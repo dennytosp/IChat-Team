@@ -17,6 +17,7 @@ import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.adapter.AdapterGroupChatList;
 import com.example.ichat.models.GroupChatList;
 import com.google.firebase.auth.FirebaseAuth;
@@ -197,7 +198,7 @@ public class GroupChatsFragment extends Fragment {
         FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user==null){
                 //user not signed in, go to main acitivity
-                startActivity(new Intent(getActivity(), MainActivity.class));
+                startActivity(new Intent(getActivity(), LoginActivity.class));
                 getActivity().finish();
             }
         }
