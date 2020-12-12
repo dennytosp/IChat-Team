@@ -3,11 +3,19 @@ package com.example.ichat.models;
 public class User {
 
     //use same name as in firebase database
-    String name, email, search, phone, image, cover, uid, onlineStatus, typingTo;
+    private String name, email, search, phone, image, cover, uid, onlineStatus, typingTo, username, gender, birthday;
     boolean isBlocked = false;
 
     public User() {
 
+    }
+
+    public User(String name, String email, String username, String gender, String birthday) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.gender = gender;
+        this.birthday = birthday;
     }
 
     public User(String name, String email, String search, String phone, String image, String cover, String uid, String onlineStatus, String typingTo, boolean isBlocked) {

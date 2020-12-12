@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">iChat</string>
+
+    <!--Descriptions-->
+    <string name="first_slide_desc">Chatting with your friends is a pleasure let our app do it.</string>
+    <string name="second_slide_desc">Find friends to chat easily quickly.</string>
+    <string name="third_slide_desc">Meet friends and chat together.</string>
+    <string name="fourth_slide_desc">Convenient and easy to use.</string>
+
+    <!--Titles-->
+    <string name="first_slide_title">Convenient Interaction</string>
+    <string name="second_slide_title">Send Quick Messages</string>
+    <string name="third_slide_title">Connect With Friends</string>
+    <string name="fourth_slide_title">Meet And Chat</string>
+
+    <!--Slide sign up - sign in-->
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="gender_and_birthday">Gender And BirthDay</string>
+    <string name="username">Create Username</string>
+    <string name="password_create">Create Password</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_in">Sign in</string>
+
+    <!--Slide sign up - sign in (description)-->
+    <string name="EmailDes">Fill in your email are using.</string>
+    <string name="PhoneDes">Fill in the phone number you are using.</string>
+    <string name="UsernameDes">Creating an account name helps your friends easily recognize you.</string>
+    <string name="PasswordDes">Create a password with more than 6 characters.</string>
+    <string name="Sign_in_des">Please enter your phone number and email to login.</string>
+    <string name="Description_Send_Authentication_Email">We sent a verification request to your email address, please verify and come back to login.</string>
+
+
+    <string name="resent_otp">Resend OTP</string>
+    <string name="enter_the_otp_send_to">Enter the OTP send to</string>
+    <string name="otp_verification">Phone Verification</string>
+    <string name="phone_verification">Phone Verification</string>
+    <string name="description_reset_password">We will send link change password to your email address.</string>
+    <string name="enter_mobile_number">Enter your email</string>
+    <string name="didn_t_receive_the_otp">You did not receive the code?</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="finish">Finish</string>
+    <string name="check_email">Check email</string>
+    <string name="waring_information">
+        Your information will be deleted after 60s, please verify..
+    </string>
+
+    //validateForm
+    <string name="email_error">Please enter a email address</string>
+    <string name="error_invalid_email">Email is not valid</string>
+    <string name="password_error">Please enter a password</string>
+    <string name="error_invalid_password">Please enter a minimum password of 6 characters</string>
+    <string name="authentication_email">Verification check</string>
+
 </resources>

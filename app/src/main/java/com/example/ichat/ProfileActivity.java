@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -24,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (user != null) {
         } else {
             //user not signed in, go to main acitivity
-            startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
             finish();
         }
     }

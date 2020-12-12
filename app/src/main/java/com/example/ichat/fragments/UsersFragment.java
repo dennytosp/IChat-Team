@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ichat.GroupCreateActivity;
-import com.example.ichat.MainActivity;
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.R;
 import com.example.ichat.SettingsActivity;
 import com.example.ichat.adapter.AdapterUsers;
@@ -138,7 +138,7 @@ public class UsersFragment extends Fragment {
             //mProfileTv.setText(user.getEmail());
         } else {
             //user not signed in, go to main acitivity
-            startActivity(new Intent(getActivity(), MainActivity.class));
+            startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
         }
     }

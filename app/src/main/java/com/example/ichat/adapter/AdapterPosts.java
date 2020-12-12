@@ -140,7 +140,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
                 showMoreOptions(myHolder.moreBtn, uid, myUid, pId, pImage);
             }
         });
-        myHolder.likeBtn.setOnClickListener(new View.OnClickListener() {
+        myHolder.ll_like_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final int pLikes = Integer.parseInt(postList.get(i).getpLikes());
@@ -507,7 +507,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         ImageView uPictureIv, pImageIv, likeBtn, commentBtn, shareBtn;
         TextView uNameTv, pTimeTv, pDescriptionTv, pLikesTv, pCommentsTv;
         ImageButton moreBtn;
-        LinearLayout profileLayout;
+        LinearLayout profileLayout, ll_like_post;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -526,6 +526,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             commentBtn = itemView.findViewById(R.id.commentBtn);
             shareBtn = itemView.findViewById(R.id.shareBtn);
             profileLayout = itemView.findViewById(R.id.profileLayout);
+            ll_like_post = itemView.findViewById(R.id.ll_like_post);
         }
     }
 

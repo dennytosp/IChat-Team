@@ -11,8 +11,10 @@ import android.widget.PopupMenu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.ichat.HauNguyen.Login.LoginActivity;
 import com.example.ichat.fragments.ChatListFragment;
 import com.example.ichat.fragments.HomeFragment;
 import com.example.ichat.fragments.NotificationsFragment;
@@ -67,8 +69,13 @@ public class DashboardActivity extends AppCompatActivity {
 
         checkUserStatus();
 
+    }
 
-
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     @Override
@@ -93,9 +100,7 @@ public class DashboardActivity extends AppCompatActivity {
                             //home fragment transaction
                             actionBar.setTitle("Home");//change actionbar title
                             HomeFragment fragment1 = new HomeFragment();
-                            FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
-                            ft1.replace(R.id.content, fragment1, "");
-                            ft1.commit();
+                            loadFragment(fragment1);
                             return true;
                         case R.id.nav_profile:
                             //profile fragment transaction
@@ -183,8 +188,8 @@ public class DashboardActivity extends AppCompatActivity {
             updateToken(FirebaseInstanceId.getInstance().getToken());
 
         } else {
-            //user not signed in, go to main acitivity
-            startActivity(new Intent(DashboardActivity.this, MainActivity.class));
+            //user not signed in, go to LoginActivity
+            startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
             finish();
         }
     }
@@ -194,13 +199,5 @@ public class DashboardActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
-
-    @Override
-    protected void onStart() {
-        //check on start of app
-        checkUserStatus();
-        super.onStart();
-    }
-
 
 }

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BottomSheetUpdateUser">
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/txtEmailes"
+            style="@style/styleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_rounded_edittext"
+            android:drawableStart="@drawable/ic_mail_outline_24px"
+            android:drawableLeft="@drawable/ic_mail_outline_24px"
+            android:hint="@string/phone_number"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/txtPasses"
+            style="@style/styleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_rounded_edittext"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawableLeft="@drawable/ic_lock"
+            android:hint="Password"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/txtUsernamees"
+            style="@style/styleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_rounded_edittext"
+            android:drawableStart="@drawable/ic_user"
+            android:drawableLeft="@drawable/ic_user"
+            android:hint="Username"
+            android:inputType="textNoSuggestions" />
+
+        <EditText
+            android:id="@+id/txtFullnamees"
+            style="@style/styleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_rounded_edittext"
+            android:drawableStart="@drawable/ic_user"
+            android:drawableLeft="@drawable/ic_user"
+            android:hint="Fullname"
+            android:inputType="textNoSuggestions" />
+
+
+        <EditText
+            android:id="@+id/txtBirthdayes"
+            style="@style/styleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_rounded_edittext"
+            android:drawableStart="@drawable/ic_user"
+            android:drawableLeft="@drawable/ic_user"
+            android:hint="Birthday"
+            android:inputType="textEmailAddress" />
+        <EditText
+            android:id="@+id/txtGenderes"
+            style="@style/styleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_rounded_edittext"
+            android:drawableStart="@drawable/ic_user"
+            android:drawableLeft="@drawable/ic_user"
+            android:hint="Gender"
+            android:inputType="textNoSuggestions" />
+
+        <Button
+            android:id="@+id/btn_updatees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/styleButton"
+            android:layout_margin="30dp"
+            android:text="Update"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
