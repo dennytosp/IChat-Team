@@ -188,7 +188,7 @@ public class DashboardActivity extends AppCompatActivity {
             updateToken(FirebaseInstanceId.getInstance().getToken());
 
         } else {
-            //user not signed in, go to main acitivity
+            //user not signed in, go to LoginActivity
             startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
             finish();
         }

@@ -32,7 +32,6 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_on"
-                android:scaleType="fitCenter"
                 android:background="@drawable/online"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
@@ -41,7 +40,6 @@
                 android:layout_alignParentRight="true" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_off"
-                android:scaleType="fitCenter"
                 android:background="@drawable/offline"
                 android:layout_width="12dp"
                 android:layout_height="12dp"

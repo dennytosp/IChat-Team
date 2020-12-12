@@ -25,7 +25,6 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.ViewCompat;
 
 import com.example.ichat.DashboardActivity;
-import com.example.ichat.HauNguyen.ContentHome;
 import com.example.ichat.HauNguyen.DAO.UserDAO;
 import com.example.ichat.HauNguyen.ForgotPassword.Content_ForgotPassWord_Activity;
 import com.example.ichat.HauNguyen.Model.User_Profile;
@@ -37,11 +36,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
+    String email, gender, birthday, username, fullName, password, Uid;
     private ImageView logoView;
     private EditText edtEmail, edtPass;
     private final TextWatcher passwordWatcher = new TextWatcher() {
@@ -71,17 +74,18 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseUser user;
     private UserDAO userDAO;
     private User_Profile user_profile;
-    String email, gender, birthday, username, fullName, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         innitView();
+        mAuth = FirebaseAuth.getInstance();
+
         animationLogo();
         hideProgressBar();
         Bundle bundle = getIntent().getExtras();
-        if (bundle != null){
+        if (bundle != null) {
             email = bundle.getString("Emails_fm5");
             password = bundle.getString("password_fm5");
             username = bundle.getString("username_fm5");
@@ -108,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 } else {
                     //check email user
-                    mAuth = FirebaseAuth.getInstance();
+
                     mAuth.fetchSignInMethodsForEmail(edtEmail.getText().toString().trim())
                             .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                                 @Override
@@ -134,7 +138,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signInWithEmailAndPassword(String email, String password) {
-        mAuth = FirebaseAuth.getInstance();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -152,7 +155,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkIfEmailVerified() {
-        mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         if (user != null) {
             if (user.isEmailVerified()) {
@@ -175,9 +177,31 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void insertDataToFirebaseRealTime() {
-        userDAO = new UserDAO(LoginActivity.this);
-        user_profile = new User_Profile(email, password, username, fullName, gender, birthday);
-        userDAO.insert(user_profile);
+        user = mAuth.getCurrentUser();
+        if (user != null) {
+            Uid = user.getUid();
+
+            HashMap<Object, String> hashMap = new HashMap<>();
+            //put info in hasmap
+            hashMap.put("email", email);
+            hashMap.put("uid", Uid);
+            hashMap.put("name", fullName); //will add later (e.g. edit profile)
+            hashMap.put("gender", gender); //will add later (e.g. edit profile)
+            hashMap.put("birthday", birthday); //will add later (e.g. edit profile)
+            hashMap.put("onlineStatus", "online"); //will add later (e.g. edit profile)
+            hashMap.put("typingTo", "noOne"); //will add later (e.g. edit profile)
+            hashMap.put("phone", ""); //will add later (e.g. edit profile)
+            hashMap.put("image", ""); //will add later (e.g. edit profile)
+            hashMap.put("cover", ""); //will add later (e.g. edit profile)
+
+            //firebase database isntance
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            //path to store user data named "Users"
+            DatabaseReference reference = database.getReference("Users");
+            //put data within hashmap in database
+            reference.child(Uid).setValue(hashMap);
+
+        }
     }
 
     private void loginSuccessfully() {

@@ -78,7 +78,7 @@
                 android:resource="@xml/paths" />
         </provider>
 
-        <!--    Hau Nguyen    -->
+        <!--   Start HauNGuyen    -->
         <activity android:name=".HauNguyen.ContentHome"
             android:theme="@style/AppTheme"/>
         <activity android:name=".HauNguyen.SignUp.Content_FrameLayout_Register_Activity"
@@ -107,6 +107,7 @@
         <activity android:name=".HauNguyen.ForgotPassword.Content_ForgotPassWord_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
+        <!--   End HauNGuyen     -->
 
     </application>
 
