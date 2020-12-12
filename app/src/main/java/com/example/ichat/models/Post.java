@@ -1,7 +1,6 @@
 package com.example.ichat.models;
 
 public class Post {
-    //use same name as we given while uploading post
     String pId, pTitle, pDescr,pLikes, pComments, pImage, pTime, uid, uEmail, uDp, uName;
 
     public Post() {

@@ -37,6 +37,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -58,7 +59,10 @@ public class HomeFragment extends Fragment {
     List<Post> postList;
     AdapterPosts adapterPosts;
     int position;
-    String hisDp;
+    String image;
+    DatabaseReference databaseReference;
+    FirebaseUser user;
+    FirebaseDatabase firebaseDatabase;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -68,13 +72,14 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //init
         firebaseAuth = FirebaseAuth.getInstance();
-//        getImage();
-        //recycler view and its properties
+        user = firebaseAuth.getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Users");
+
+
         ivAvatar = view.findViewById(R.id.ivAvatar);
         recyclerView = view.findViewById(R.id.postsRecyclerview);
         clickPhoto = (LinearLayout) view.findViewById(R.id.clickPhoto);
@@ -85,26 +90,45 @@ public class HomeFragment extends Fragment {
             }
         });
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        //show newest post first, for this load from last
         layoutManager.setStackFromEnd(true);
         layoutManager.setReverseLayout(true);
         //set layout to recyclerview
         recyclerView.setLayoutManager(layoutManager);
         //init post list
         postList = new ArrayList<>();
-
+        getImage();
         loadPosts();
 
         return view;
     }
 
     private void getImage() {
-        User user = users.get(position);
-        if (user.getImage().equals("noImage")) {
-            ivAvatar.setImageResource(R.mipmap.ic_launcher);
-        } else {
-            Glide.with(getActivity()).load(user.getImage()).into(ivAvatar);
-        }
+        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                //checkc until required data get
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    //get data
+                    image = "" + ds.child("image").getValue();
+                    try {
+                        //if image is received then set
+                        Picasso.get().load(image).into(ivAvatar);
+                    } catch (Exception e) {
+                        //if there is any exception while getting image then set default
+                        Picasso.get().load(R.drawable.ic_default_img_white).into(ivAvatar);
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
@@ -117,16 +141,8 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 postList.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    hisDp = "" + ds.child("uDp").getValue();
-
-                    try {
-                        Picasso.get().load(hisDp).placeholder(R.drawable.photo).into(ivAvatar);
-                    } catch (Exception e) {
-                        Picasso.get().load(R.drawable.photo).into(ivAvatar);
-                    }
 
                     Post post = ds.getValue(Post.class);
-
                     postList.add(post);
 
                     //adapter

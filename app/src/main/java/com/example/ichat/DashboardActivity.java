@@ -17,6 +17,7 @@ import com.example.ichat.fragments.ChatListFragment;
 import com.example.ichat.fragments.HomeFragment;
 import com.example.ichat.fragments.NotificationsFragment;
 import com.example.ichat.fragments.ProfileFragment;
+import com.example.ichat.fragments.TabFragmentUser;
 import com.example.ichat.fragments.UsersFragment;
 import com.example.ichat.notifications.Token;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -106,8 +107,7 @@ public class DashboardActivity extends AppCompatActivity {
                             return true;
                         case R.id.nav_users:
                             //users fragment transaction
-                            actionBar.setTitle("Users");//change actionbar title
-                            UsersFragment fragment3 = new UsersFragment();
+                            TabFragmentUser fragment3 = new TabFragmentUser();
                             FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
                             ft3.replace(R.id.content, fragment3, "");
                             ft3.commit();

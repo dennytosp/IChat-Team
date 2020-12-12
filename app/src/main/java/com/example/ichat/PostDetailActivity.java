@@ -57,7 +57,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PostDetailActivity extends AppCompatActivity {
 
 
-    //to get detail of user and post
     String hisUid, myUid, myEmail, myName, myDp,
             postId, pLikes, hisDp, hisName, pImage;
 
@@ -451,9 +450,6 @@ public class PostDetailActivity extends AppCompatActivity {
     }
 
     private void likePost() {
-        //get total number of likes for the post, whose like button clicked
-        //if currently signed in user has not liked it before
-        //increase value by 1, otherwise decrease value by 1
         mProcessLike = true;
         //get id of the post clicked
         final DatabaseReference likesRef = FirebaseDatabase.getInstance().getReference().child("Likes");

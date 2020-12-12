@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
     android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="4dp"
         android:layout_marginBottom="8dp">
 
         <RelativeLayout
@@ -22,44 +22,32 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/avatarIv"
-                android:background="@drawable/photo"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"/>
+                android:background="@drawable/photo" />
 
-            <!--            <ImageView-->
-            <!--                xmlns:app="http://schemas.android.com/apk/res-auto"-->
-            <!--                android:id="@+id/iv_online"-->
-            <!--                android:scaleType="fitCenter"-->
-            <!--                android:background="@drawable/offline"-->
-            <!--                android:layout_width="12dp"-->
-            <!--                android:layout_height="12dp"-->
-            <!--                android:layout_alignParentTop="true"-->
-            <!--                android:layout_alignParentRight="true" />-->
 
         </RelativeLayout>
-        <!--            <ImageView-->
-        <!--                xmlns:app="http://schemas.android.com/apk/res-auto"-->
-        <!--                android:id="@+id/iv_online"-->
-        <!--                android:scaleType="fitCenter"-->
-        <!--                android:background="@drawable/offline"-->
-        <!--                android:layout_width="12dp"-->
-        <!--                android:layout_height="12dp"-->
-        <!--                android:layout_alignParentTop="true"-->
-        <!--                android:layout_alignParentRight="true" />-->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_on"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/online"
+            android:visibility="gone" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_off"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@id/avatarIv"
-            android:src="@mipmap/ic_launcher"
-            android:visibility="gone"
-            app:civ_border_color="#696868"
-            app:civ_border_width="4dp" />
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/offline"
+            android:visibility="gone" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -71,8 +59,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:text="Le Chi Vinh"
                 android:layout_marginTop="3dp"
+                android:text="Le Chi Vinh"
                 android:textColor="#333"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -83,19 +71,19 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nameTv"
                 android:text="lechivinh@gmail.com"
-                android:textStyle="normal"
                 android:textColor="#959191"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="normal" />
 
-<!--            <customfonts.MyTextView_Arial-->
-<!--                android:id="@+id/tvTime"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginRight="8dp"-->
-<!--                android:text="1 minute ago"-->
-<!--                android:textColor="#959191"-->
-<!--                android:textSize="12sp"-->
-<!--                android:layout_alignParentRight="true"/>-->
+            <!--            <customfonts.MyTextView_Arial-->
+            <!--                android:id="@+id/tvTime"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginRight="8dp"-->
+            <!--                android:text="1 minute ago"-->
+            <!--                android:textColor="#959191"-->
+            <!--                android:textSize="12sp"-->
+            <!--                android:layout_alignParentRight="true"/>-->
 
         </RelativeLayout>
 

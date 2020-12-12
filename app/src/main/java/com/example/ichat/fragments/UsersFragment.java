@@ -43,7 +43,6 @@ public class UsersFragment extends Fragment {
     AdapterUsers adapterUsers;
     List<User> userList;
 
-    //firebase auth
     FirebaseAuth firebaseAuth;
 
     public UsersFragment() {
@@ -52,17 +51,12 @@ public class UsersFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_users, container, false);
 
-        //init
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //init recyclerview
         recyclerView = view.findViewById(R.id.users_recyclerView);
-        //set it's properties
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -76,11 +70,8 @@ public class UsersFragment extends Fragment {
     }
 
     private void getAllUsers() {
-        //get current user
         final FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
-        //get path of database named "Users" containing users info
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
-        //get all data from path
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -88,14 +79,11 @@ public class UsersFragment extends Fragment {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     User user = ds.getValue(User.class);
 
-                    //get all users except currently signed in user
                     if (!user.getUid().equals(fUser.getUid())) {
                         userList.add(user);
                     }
 
-                    //adapter
                     adapterUsers = new AdapterUsers(getActivity(), userList);
-                    //set adapter to recycler view
                     recyclerView.setAdapter(adapterUsers);
 
                 }
@@ -164,19 +152,15 @@ public class UsersFragment extends Fragment {
     /*inflate options menu*/
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        //inflating menu
         inflater.inflate(R.menu.menu_main, menu);
 
-        //hide addpost icon from this fragment
         menu.findItem(R.id.action_add_post).setVisible(false);
         menu.findItem(R.id.action_add_participant).setVisible(false);
         menu.findItem(R.id.action_groupinfo).setVisible(false);
 
-        //SearchView
         MenuItem item = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
 
-        //Search listener
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -206,7 +190,6 @@ public class UsersFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //get item id
         int id = item.getItemId();
         if (id == R.id.action_logout) {
             firebaseAuth.signOut();
